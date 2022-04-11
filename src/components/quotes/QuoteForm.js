@@ -13,12 +13,12 @@ const QuoteForm = (props) => {
   function submitFormHandler(event) {
     event.preventDefault();
 
-    const enteredAuthor = authorInputRef.current.value;
-    const enteredText = textInputRef.current.value;
+    const enteredAuthor = authorInputRef.current.value.trim();
+    const enteredText = textInputRef.current.value.trim();
 
     // optional: Could validate here
 
-    props.onAddQuote({ author: enteredAuthor, text: enteredText });
+    if(enteredAuthor && enteredText)props.onAddQuote({ author: enteredAuthor, text: enteredText });
   }
 
   function formFocusHandler(){
